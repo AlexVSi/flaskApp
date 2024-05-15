@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "base/head.html" %}
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<form id="registrationForm" action="/reg" method="post">
+				<h2>Регистрация</h2>
+				{% if duplicate_login %}
+				<p>Такой логин уже существует</p>
+				{% endif %}
+				<label for="firstname">Фамилия:</label>
+				<input type="text" id="firstname" name="firstname" required>
+
+				<label for="lastname">Имя:</label>
+				<input type="text" id="lastname" name="lastname" required>
+
+				<label for="surename">Отчество:</label>
+				<input type="text" id="surename" name="surename" required>
+	
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+	
+				<label for="phone">Телефон:</label>
+				<input type="tel" id="phone" name="phone" required>
+
+				<label for="login">Логин:</label>
+				<input type="text" id="login" name="login" required>
+	
+				<label for="password">Пароль:</label>
+				<input type="password" id="password" name="password" required>
+
+				<button type="submit" value="Registration" class="button">Зарегистрироваться</button>
+			</form>
+			<p>Уже есть аккаунт? <a href={{ url_for('index') }}>Войти</a></p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include "base/head.html" %}
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<form id="loginForm" action="/auth" method="post">
+				<h2>Авторизация</h2>
+				{% if auth_forbidden %}
+				<p>Неверный логин или пароль</p>
+				{% endif %}
+				<label for="login">Логин:</label>
+				<input type="text" id="login" name="login" required>
+		
+				<label for="password">Пароль:</label>
+				<input type="password" id="password" name="password" required>
+		
+				<button type="submit" class="button">Войти</button>
+			</form>
+			<p>Нет аккаунта? <a href={{ url_for('registration') }}>Регистрация</a></p>
+		
+			<div id="message"></div>
+		</div>
+	</div>
+
+</body>
+</html>
